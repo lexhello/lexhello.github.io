@@ -59,7 +59,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: brightness(0.7);
+      filter: brightness(1);
       transition: transform 400ms ease, filter 400ms ease;
     }
 
@@ -67,12 +67,12 @@
       width: 100%;
       height: 100%;
       transition: filter 400ms ease;
-      filter: brightness(0.85);
+      filter: brightness(1);
     }
 
     .highlight-photo:hover img,
     .highlight-photo:hover .highlight-bg {
-      filter: brightness(1);
+      filter: brightness(0.85);
     }
 
     .highlight-photo:hover img {
@@ -161,7 +161,7 @@
       display: block;
       object-fit: cover;
       transition: transform 400ms ease, filter 400ms ease;
-      filter: brightness(0.92) saturate(0.9);
+      filter: brightness(1) saturate(1);
     }
 
     .collage .photo .placeholder {
@@ -181,10 +181,7 @@
 
     .collage .photo:hover img,
     .collage .photo:hover .placeholder {
-      filter: brightness(1) saturate(1.05);
-    }
-    .collage .photo:hover img {
-      transform: scale(1.03);
+      filter: brightness(.97) saturate(.97);
     }
 
     .collage .photo .caption {
@@ -233,7 +230,7 @@
     <a class="back-link" href="index.html">← Back home</a>
 
     <h1>📸 Photos</h1>
-    <p>Some travels and pics. Click on a photo to jump to that location. </p>
+    <p>Some travels and mems! Click on a photo to jump to that location. Still a WIP! </p>
 
     <!-- ── Highlights collage — click any photo to jump to that location ── -->
     <section class="location-group" id="highlights">
@@ -241,35 +238,72 @@
         <!-- ── Highlights collage — click any photo to jump to that location ── -->
       <div class="highlights" id="highlights">
 
-        <a class="highlight-photo portrait" href="#pittsburgh">
-          <!-- To use a real photo: replace the div below with <img src="pittsburgh/bridge.jpg" alt="Pittsburgh"> -->
-          <div class="highlight-bg" style="background:#2a2a2a;"></div>
-          <div class="highlight-label">Pittsburgh, PA</div>
+        <a class="highlight-photo portrait" href="#puerto-rico">
+          <img src="photos/Puerto Rico/IMG_9916.JPG" alt="castle">
+          <div class="highlight-label">San Juan, Puerto Rico</div>
+        </a>
+
+        <a class="highlight-photo landscape" href="#italy">
+          <img src="photos/Italy/DSC_1558.JPG" alt="capri">
+          <div class="highlight-label">Capri, Italy</div>
+        </a>
+
+        <a class="highlight-photo square" href="#spain">
+          <img src="photos/Spain/DSC_0681.JPG" alt="spain">
+          <div class="highlight-label">Consuegra, Spain</div>
+        </a>
+
+        <a class="highlight-photo square" href="#china">
+          <img src="photos/China/DSC_0321.JPG" alt="bear">
+          <div class="highlight-label">Jiamusi, China</div>
         </a>
 
         <a class="highlight-photo landscape" href="#new-york">
-          <!-- To use a real photo: replace the div below with <img src="nyc/highline.jpg" alt="New York"> -->
-          <div class="highlight-bg" style="background:#202020;"></div>
-          <div class="highlight-label">New York, NY</div>
-        </a>
-
-        <a class="highlight-photo square" href="#pittsburgh">
-          <!-- To use a real photo: replace the div below with <img src="pittsburgh/skyline.jpg" alt="Pittsburgh skyline"> -->
-          <div class="highlight-bg" style="background:#252525;"></div>
-          <div class="highlight-label">Pittsburgh, PA</div>
-        </a>
-
-        <a class="highlight-photo landscape" href="#somewhere-else">
-          <!-- To use a real photo: replace the div below with <img src="somewhere/mountain.jpg" alt="Somewhere Else"> -->
-          <div class="highlight-bg" style="background:#202828;"></div>
-          <div class="highlight-label">Somewhere Else</div>
-        </a>
-
-        <a class="highlight-photo portrait" href="#new-york">
           <!-- To use a real photo: replace the div below with <img src="nyc/subway.jpg" alt="New York subway"> -->
           <div class="highlight-bg" style="background:#1e2020;"></div>
           <div class="highlight-label">New York, NY</div>
         </a>
+
+      </div>
+    </section>
+
+    <!-- ── Location: Puerto Rico ── -->
+    <section class="location-group" id="puerto-rico">
+      <div class="location-label">Puerto Rico</div>
+      <div class="collage">
+
+        <div class="photo landscape">
+          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
+          <div class="caption">—</div>
+        </div>
+
+        <div class="photo portrait">
+          <div class="placeholder" style="aspect-ratio:2/3; background:#202020;">golden hour</div>
+          <div class="caption">—</div>
+        </div>
+
+        <div class="photo square">
+          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
+          <div class="caption">—</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Location: China ── -->
+    <section class="location-group" id="italy">
+      <div class="location-label">Italy</div>
+      <div class="collage">
+
+        <div class="photo landscape">
+          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
+          <div class="caption">—</div>
+        </div>
+
+        <div class="photo square">
+          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
+          <div class="caption">—</div>
+        </div>
 
       </div>
     </section>
@@ -296,14 +330,14 @@
           <div class="placeholder" style="aspect-ratio:1/1; background:#2d2820;"></div>
           <div class="caption">random</div>
         </div>
-        
+
 
       </div>
     </section>
 
     <!-- ── Location: Pittsburgh ── -->
-    <section class="location-group" id="pittsburgh">
-      <div class="location-label">Pittsburgh, PA</div>
+    <section class="location-group" id="penn">
+      <div class="location-label">Pennsylvania</div>
       <div class="collage">
 
         <div class="photo landscape">
@@ -339,33 +373,42 @@
       </div>
     </section>
 
-    <!-- ── Location: New York ── -->
-    <section class="location-group" id="new-york">
-      <div class="location-label">New York, NY</div>
-      <div class="collage" data-flip="true">
-
-        <div class="photo portrait">
-          <!-- <img src="nyc/subway.jpg" alt="Subway platform"> -->
-          <div class="placeholder" style="aspect-ratio:2/3; background:#202020;">subway platform</div>
-          <div class="caption">L Train, 14th St</div>
-        </div>
+    <!-- ── Location: Spain ── -->
+    <section class="location-group" id="spain">
+      <div class="location-label">Spain</div>
+      <div class="collage">
 
         <div class="photo landscape">
-          <!-- <img src="nyc/highline.jpg" alt="High Line"> -->
-          <div class="placeholder" style="aspect-ratio:3/2; background:#282820;">high line in october</div>
-          <div class="caption">The High Line</div>
+          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
+          <div class="caption">—</div>
+        </div>
+
+        <div class="photo portrait">
+          <div class="placeholder" style="aspect-ratio:2/3; background:#202020;">golden hour</div>
+          <div class="caption">—</div>
         </div>
 
         <div class="photo square">
-          <!-- <img src="nyc/coffee.jpg" alt="Coffee shop"> -->
-          <div class="placeholder" style="aspect-ratio:1/1; background:#242424;">coffee window</div>
-          <div class="caption">West Village</div>
+          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
+          <div class="caption">—</div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ── Location: China ── -->
+    <section class="location-group" id="china">
+      <div class="location-label">China</div>
+      <div class="collage">
+
         <div class="photo landscape">
-          <!-- <img src="nyc/brooklyn.jpg" alt="Brooklyn Bridge"> -->
-          <div class="placeholder" style="aspect-ratio:4/3; background:#1e2020;">brooklyn bridge walkway</div>
-          <div class="caption">Brooklyn Bridge</div>
+          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
+          <div class="caption">—</div>
+        </div>
+
+        <div class="photo square">
+          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
+          <div class="caption">—</div>
         </div>
 
       </div>
