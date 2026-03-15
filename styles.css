@@ -95,3 +95,17 @@ p {
   width: 100%;
 }
 
+.highlights {
+  display: flex;
+  gap: 8px;
+  align-items: start;
+}
+
+.highlights-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.col-narrow { flex: 1.6; }
+.col-wide   { flex: 3; }

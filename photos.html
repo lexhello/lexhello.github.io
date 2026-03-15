@@ -34,11 +34,7 @@
     }
 
     /* ── Highlights collage ── */
-    .highlights {
-      columns: 3 160px;
-      column-gap: 8px;
-      margin-bottom: 3.5rem;
-    }
+    
 
     .highlight-photo {
       break-inside: avoid;
@@ -47,7 +43,7 @@
       overflow: hidden;
       border-radius: 4px;
       text-decoration: none;
-      margin-bottom: 8px;
+      margin-bottom: 2px;
     }
 
     .highlight-photo.portrait  { aspect-ratio: 2 / 3; }
@@ -76,7 +72,7 @@
     }
 
     .highlight-photo:hover img {
-      transform: scale(1.05);
+      transform: scale(1.01);
     }
 
     .highlight-label {
@@ -115,16 +111,29 @@
       Default: wide col (landscapes) on left, narrow col (portraits) on right.
       Add data-flip="true" to .collage to swap sides.
     */
+    /* ── Two-column collage ── */
     .collage {
-      display: grid;
-      grid-template-columns: 3fr 2fr; /* wide left, narrow right */
-      grid-template-rows: auto;
+      display: flex;
       gap: 8px;
       align-items: start;
     }
 
-    .collage[data-flip="true"] {
-      grid-template-columns: 2fr 3fr; /* narrow left, wide right */
+    .collage-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Default: wide left (landscapes), narrow right (portraits) */
+    .collage .col-wide    { flex: 2.7; }
+    .collage .col-narrow  { flex: 2; }
+
+    .collage .photo img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 400ms ease, filter 400ms ease;
+      filter: brightness(1) saturate(1);
     }
 
     /* Landscape photos go in column 1 by default */
@@ -136,16 +145,6 @@
     .collage .photo.portrait,
     .collage .photo.square {
       grid-column: 2;
-    }
-
-    /* Flipped: swap columns */
-    .collage[data-flip="true"] .photo.landscape {
-      grid-column: 2;
-    }
-
-    .collage[data-flip="true"] .photo.portrait,
-    .collage[data-flip="true"] .photo.square {
-      grid-column: 1;
     }
 
     .collage .photo {
@@ -229,81 +228,110 @@
 
     <a class="back-link" href="index.html">← Back home</a>
 
-    <h1>Photos</h1>
+    <h1>Photos 📸</h1>
     <p>Some travels and mems! Click on a photo to jump to that location. Still a WIP! </p>
 
     <!-- ── Highlights collage — click any photo to jump to that location ── -->
     <section class="location-group" id="highlights">
-      <div class="location-label">Highlights</div>
-        <!-- ── Highlights collage — click any photo to jump to that location ── -->
-      <div class="highlights" id="highlights">
 
-        <a class="highlight-photo portrait" href="#puerto-rico">
-          <img src="photos/Puerto Rico/IMG_9916.JPG" alt="castle">
-          <div class="highlight-label">San Juan, Puerto Rico</div>
-        </a>
 
-        <a class="highlight-photo landscape" href="#italy">
-          <img src="photos/Italy/DSC_1558.JPG" alt="capri">
-          <div class="highlight-label">Capri, Italy</div>
-        </a>
+      <div class="highlights">
+        <div class="highlights-col col-narrow">
 
-        <a class="highlight-photo square" href="#spain">
-          <img src="photos/Spain/DSC_0681.JPG" alt="spain">
-          <div class="highlight-label">Consuegra, Spain</div>
-        </a>
+          <a class="highlight-photo portrait" href="#puerto-rico">
+            <img src="photos/Puerto Rico/IMG_9916.JPG" alt="castle">
+            <div class="highlight-label">San Juan, Puerto Rico</div>
+          </a>
 
-        <a class="highlight-photo square" href="#china">
-          <img src="photos/China/DSC_0321.JPG" alt="bear">
-          <div class="highlight-label">Jiamusi, China</div>
-        </a>
+          <a class="highlight-photo square" href="#france">
+            <img src="photos/France/DSC_2688.JPG" alt="lavendar">
+            <div class="highlight-label">Provence, France</div>
+          </a>
 
-        <!-- <a class="highlight-photo landscape" href="#new-york">
-          <div class="highlight-bg" style="background:#1e2020;"></div>
-          <div class="highlight-label">New York, NY</div>
-        </a> -->
+          <a class="highlight-photo square" href="#china">
+            <img src="photos/China/DSC_0321.JPG" alt="bear">
+            <div class="highlight-label">Jiamusi, China</div>
+          </a>
+
+        </div>
+
+        <div class="highlights-col col-wide">
+          <a class="highlight-photo landscape" href="#italy">
+            <img src="photos/Italy/DSC_1558.JPG" alt="capri">
+            <div class="highlight-label">Capri, Italy</div>
+          </a>
+
+          <a class="highlight-photo landscape" href="#spain">
+            <img src="photos/Spain/DSC_0581.JPG" alt="sagrada-familia">
+            <div class="highlight-label">Barcelona, Spain</div>
+          </a>
+
+
+        </div>
+
+        <div class="highlights-col col-narrow">
+          <a class="highlight-photo square" href="#spain">
+            <img src="photos/Spain/DSC_0681.JPG" alt="spain">
+            <div class="highlight-label">Consuegra, Spain</div>
+          </a>
+
+          <a class="highlight-photo square" href="#exchange">
+            <img src="photos/Switzerland Exchange/DSCN0778.JPG" alt="dentes">
+            <div class="highlight-label">Switzerland</div>
+          </a>
+
+          <a class="highlight-photo portrait" href="#penn">
+            <img src="photos/Pennsylvania/IMG_3272.JPG" alt="apples">
+            <div class="highlight-label">Pittsburgh, PA</div>
+          </a>
+
+        </div>
 
       </div>
+
     </section>
 
     <!-- ── Location: Puerto Rico ── -->
     <section class="location-group" id="puerto-rico">
       <div class="location-label">Puerto Rico</div>
+
       <div class="collage">
-
-        <div class="photo landscape">
-          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
-          <div class="caption">—</div>
+      
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
+            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
+            <div class="caption">mountain road</div>
+          </div>
         </div>
 
-        <div class="photo portrait">
-          <div class="placeholder" style="aspect-ratio:2/3; background:#202020;">golden hour</div>
-          <div class="caption">—</div>
+        <div class="collage-col col-narrow">
+          <div class="photo portrait">
+            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
+            <div class="caption">golden hour</div>
+          </div>
         </div>
-
-        <div class="photo square">
-          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
-          <div class="caption">—</div>
-        </div>
-
       </div>
+
     </section>
 
-    <!-- ── Location: China ── -->
+    <!-- ── Location: Italy ── -->
     <section class="location-group" id="italy">
       <div class="location-label">Italy</div>
       <div class="collage">
-
-        <div class="photo landscape">
-          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
-          <div class="caption">—</div>
+      
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
+            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
+            <div class="caption">mountain road</div>
+          </div>
         </div>
 
-        <div class="photo square">
-          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
-          <div class="caption">—</div>
+        <div class="collage-col col-narrow">
+          <div class="photo portrait">
+            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
+            <div class="caption">golden hour</div>
+          </div>
         </div>
-
       </div>
     </section>
 
@@ -311,26 +339,20 @@
     <section class="location-group" id="california">
       <div class="location-label">California</div>
       <div class="collage">
-
-        <div class="photo landscape">
-          <!-- <img src="pittsburgh/bridge.jpg" alt="Bridge at dusk"> -->
-          <div class="placeholder" style="aspect-ratio:4/3; background:#2a2a2a;"></div>
-          <div class="caption">Carmel</div>
+      
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
+            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
+            <div class="caption">mountain road</div>
+          </div>
         </div>
 
-        <div class="photo portrait">
-          <!-- <img src="pittsburgh/cathedral.jpg" alt="Cathedral of Learning"> -->
-          <div class="placeholder" style="aspect-ratio:2/3; background:#252525;"></div>
-          <div class="caption">Bixby Bridge</div>
+        <div class="collage-col col-narrow">
+          <div class="photo portrait">
+            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
+            <div class="caption">golden hour</div>
+          </div>
         </div>
-
-        <div class="photo square">
-          <!-- <img src="pittsburgh/market.jpg" alt="Strip District"> -->
-          <div class="placeholder" style="aspect-ratio:1/1; background:#2d2820;"></div>
-          <div class="caption">random</div>
-        </div>
-
-
       </div>
     </section>
 
@@ -338,37 +360,20 @@
     <section class="location-group" id="penn">
       <div class="location-label">Pennsylvania</div>
       <div class="collage">
-
-        <div class="photo landscape">
-          <!-- <img src="pittsburgh/bridge.jpg" alt="Bridge at dusk"> -->
-          <div class="placeholder" style="aspect-ratio:4/3; background:#2a2a2a;"></div>
-          <div class="caption">Fort Pitt Bridge</div>
+      
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
+            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
+            <div class="caption">mountain road</div>
+          </div>
         </div>
 
-        <div class="photo portrait">
-          <!-- <img src="pittsburgh/cathedral.jpg" alt="Cathedral of Learning"> -->
-          <div class="placeholder" style="aspect-ratio:2/3; background:#252525;"></div>
-          <div class="caption">Cathedral of Learning</div>
+        <div class="collage-col col-narrow">
+          <div class="photo portrait">
+            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
+            <div class="caption">golden hour</div>
+          </div>
         </div>
-
-        <div class="photo square">
-          <!-- <img src="pittsburgh/market.jpg" alt="Strip District"> -->
-          <div class="placeholder" style="aspect-ratio:1/1; background:#2d2820;"></div>
-          <div class="caption">Strip District</div>
-        </div>
-
-        <div class="photo portrait">
-          <!-- <img src="pittsburgh/incline.jpg" alt="Duquesne Incline"> -->
-          <div class="placeholder" style="aspect-ratio:3/4; background:#1e2428;"></div>
-          <div class="caption">Duquesne Incline</div>
-        </div>
-
-        <div class="photo landscape">
-          <!-- <img src="pittsburgh/skyline.jpg" alt="Skyline from Mt Washington"> -->
-          <div class="placeholder" style="aspect-ratio:16/9; background:#222;"></div>
-          <div class="caption">Mt. Washington Overlook</div>
-        </div>
-
       </div>
     </section>
 
@@ -376,22 +381,20 @@
     <section class="location-group" id="spain">
       <div class="location-label">Spain</div>
       <div class="collage">
-
-        <div class="photo landscape">
-          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
-          <div class="caption">—</div>
+      
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
+            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
+            <div class="caption">mountain road</div>
+          </div>
         </div>
 
-        <div class="photo portrait">
-          <div class="placeholder" style="aspect-ratio:2/3; background:#202020;">golden hour</div>
-          <div class="caption">—</div>
+        <div class="collage-col col-narrow">
+          <div class="photo portrait">
+            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
+            <div class="caption">golden hour</div>
+          </div>
         </div>
-
-        <div class="photo square">
-          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
-          <div class="caption">—</div>
-        </div>
-
       </div>
     </section>
 
@@ -399,17 +402,20 @@
     <section class="location-group" id="china">
       <div class="location-label">China</div>
       <div class="collage">
-
-        <div class="photo landscape">
-          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
-          <div class="caption">—</div>
+      
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
+            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
+            <div class="caption">mountain road</div>
+          </div>
         </div>
 
-        <div class="photo square">
-          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
-          <div class="caption">—</div>
+        <div class="collage-col col-narrow">
+          <div class="photo portrait">
+            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
+            <div class="caption">golden hour</div>
+          </div>
         </div>
-
       </div>
     </section>
 
@@ -417,22 +423,20 @@
     <section class="location-group" id="somewhere-else">
       <div class="location-label">Somewhere Else</div>
       <div class="collage">
-
-        <div class="photo landscape">
-          <div class="placeholder" style="aspect-ratio:3/2; background:#202828;">mountain road</div>
-          <div class="caption">—</div>
+      
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
+            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
+            <div class="caption">mountain road</div>
+          </div>
         </div>
 
-        <div class="photo portrait">
-          <div class="placeholder" style="aspect-ratio:2/3; background:#202020;">golden hour</div>
-          <div class="caption">—</div>
+        <div class="collage-col col-narrow">
+          <div class="photo portrait">
+            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
+            <div class="caption">golden hour</div>
+          </div>
         </div>
-
-        <div class="photo square">
-          <div class="placeholder" style="aspect-ratio:1/1; background:#28201e;">still life</div>
-          <div class="caption">—</div>
-        </div>
-
       </div>
     </section>
 
