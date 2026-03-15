@@ -1,19 +1,17 @@
 :root {
   /* Dark chalkboard theme */
-  --bg: #1a1a1a;          /* very dark gray background */
-  --text: #f5f5f5;        /* light text */
-  --muted: #cccccc;       /* muted gray for links */
-  --accent: #ffd166;      /* soft yellow accent */
-  --border: #333333;      /* subtle borders if needed */
+  --bg: #1a1a1a;
+  --text: #f5f5f5;
+  --muted: #cccccc;
+  --accent: #d4b896;      /* elegant warm beige — replaces yellow */
+  --border: #333333;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /*font-family: 'Inter', system-ui, sans-serif; /* clean modern font */
   font-family: 'Cormorant Garamond', Georgia, serif;
-  /* font-family: 'Libre Baskerville', Georgia, serif; */
 }
 
 body {
@@ -28,7 +26,7 @@ body {
 }
 
 /* ------------------------
-   Container tweaks
+   Container
 ------------------------ */
 .container {
   width: 100%;
@@ -43,7 +41,7 @@ body {
 ------------------------ */
 h1 {
   font-size: clamp(2.4rem, 5vw, 3.2rem);
-  font-weight: 600;           /* bold for clarity */
+  font-weight: 500;
   margin-bottom: 0.75rem;
   letter-spacing: 0.5px;
 }
@@ -96,3 +94,4 @@ p {
 .links a:hover::after {
   width: 100%;
 }
+
