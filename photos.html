@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="head.js"></script>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -88,22 +89,13 @@
       pointer-events: none;
     }
 
-
-
-    /* ── Location group ── */
-    .location-group {
-      margin-bottom: 3.5rem;
-      scroll-margin-top: 2rem;
-    }
-
-    .location-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
+    .location-date {
+      display: block;          /* puts it on its own line */
+      font-size: 0.68rem;      /* smaller than the label */
+      letter-spacing: 0.08em;  /* less aggressive tracking */
+      text-transform: none;    /* cancels the parent uppercase */
+      opacity: 0.75;           /* slightly softer than the label */
+      margin-top: 0.15rem;
     }
 
     /* ── Two-column collage ── */
@@ -229,7 +221,7 @@
     <a class="back-link" href="index.html">← Back home</a>
 
     <h1>Photos 📸</h1>
-    <p>Some travels and mems! Click on a photo to jump to that location. Still a WIP! </p>
+    <p>Some so lucky for these travels and mems! Click on a photo to jump to that location. Still a WIP! </p>
 
     <!-- ── Highlights collage — click any photo to jump to that location ── -->
     <section class="location-group" id="highlights">
@@ -266,7 +258,12 @@
             <div class="highlight-label">Barcelona, Spain</div>
           </a>
 
+          <a class="highlight-photo landscape" href="#germany">
+            <img src="photos/Germany/IMG_7557.jpg" alt="linderhof">
+            <div class="highlight-label">Bavaria, Germany</div>
+          </a>
 
+          
         </div>
 
         <div class="highlights-col col-narrow">
@@ -293,44 +290,90 @@
 
     <!-- ── Location: Puerto Rico ── -->
     <section class="location-group" id="puerto-rico">
-      <div class="location-label">Puerto Rico</div>
+      <div class="location-label">Puerto Rico <span class="location-date">March 2026</span> </div>
 
       <div class="collage">
-      
+
         <div class="collage-col col-wide">
           <div class="photo landscape">
-            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
-            <div class="caption">mountain road</div>
+            <img src="photos/Puerto Rico/IMG_9925.JPG" alt="road">
+            <div class="caption">Old San Juan</div>
+          </div>
+          <div class="photo landscape">
+            <img src="photos/Puerto Rico/IMG_9966.JPG" alt="road">
+            <div class="caption">View from Castillo San Felipe del Morro</div>
+          </div>
+          <div class="photo landscape">
+            <img src="photos/Puerto Rico/IMG_9893.JPG" alt="road">
+            <div class="caption">Puerta de San Juan</div>
           </div>
         </div>
 
         <div class="collage-col col-narrow">
           <div class="photo portrait">
-            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
-            <div class="caption">golden hour</div>
+            <img src="photos/Puerto Rico/IMG_9916.JPG" alt="castle">
+            <div class="caption">Castillo San Felipe del Morro</div>
+          </div>
+          <div class="photo landscape">
+            <img src="photos/Puerto Rico/IMG_9860.JPG" alt="flags">
+            <div class="caption">Cross of Burgundy Flag at the castle </div>
+          </div>
+          <div class="photo landscape">
+            <img src="photos/Puerto Rico/IMG_9935.JPG" alt="flags">
+            <div class="caption">Parque de les Palomas</div>
           </div>
         </div>
+
       </div>
 
     </section>
 
     <!-- ── Location: Italy ── -->
     <section class="location-group" id="italy">
-      <div class="location-label">Italy</div>
+      <div class="location-label">Italy <span class="location-date">April 2025</span> </div>
       <div class="collage">
       
         <div class="collage-col col-wide">
           <div class="photo landscape">
-            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
-            <div class="caption">mountain road</div>
+            <img src="photos/Italy/DSC_1558.JPG" alt="capri">
+            <div class="caption">Belvedere del Pizzolungo island off of Capri, Italy </div>
           </div>
+          <div class="photo landscape">
+            <img src="photos/Italy/DSC_1492.JPG" alt="capri">
+            <div class="caption">View of Capri </div>
+          </div>
+          <div class="photo landscape">
+            <img src="photos/Italy/DSC_1712.JPG" alt="rome">
+            <div class="caption">Roman Forum, Rome </div>
+          </div>
+          <div class="photo landscape">
+            <img src="photos/Italy/DSC_1916.JPG" alt="siena">
+            <div class="caption">Duomo di Siena</div>
+          </div>
+          
+
         </div>
 
         <div class="collage-col col-narrow">
-          <div class="photo portrait">
-            <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
-            <div class="caption">golden hour</div>
+          <div class="photo landscape">
+            <img src="photos/Italy/DSC_1471.JPG" alt="capri">
+            <div class="caption">Lemon tree grove on Capri</div>
           </div>
+          <div class="photo portrait">
+            <img src="photos/Italy/DSC_1761.JPG" alt="colosseum">
+            <div class="caption">The Colosseum in Rome</div>
+          </div>
+          
+          <div class="photo landscape">
+            <img src="photos/Italy/DSC_1872.JPG" alt="the vatican">
+            <div class="caption">St. Peter's Basilica in the Vatican</div>
+          </div>
+          
+          <div class="photo landscape">
+            <img src="photos/Italy/DSC_1893.JPG" alt="siena">
+            <div class="caption">Duomo di Siena</div>
+          </div>
+          
         </div>
       </div>
     </section>
@@ -340,17 +383,21 @@
       <div class="location-label">California</div>
       <div class="collage">
       
-        <div class="collage-col col-wide">
-          <div class="photo landscape">
-            <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
-            <div class="caption">mountain road</div>
-          </div>
-        </div>
-
         <div class="collage-col col-narrow">
-          <div class="photo portrait">
+          <div class="photo landscape">
+            <img src="photos/California/DSC_0425.JPG" alt="california">
+            <div class="caption">On highway 1</div>
+          </div>
+          <!-- <div class="photo portrait">
             <div class="placeholder" style="aspect-ratio:2/3; background:#202020;"></div>
             <div class="caption">golden hour</div>
+          </div> -->
+        </div>
+
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
+            <img src="photos/California/DSC_0475.JPG" alt="california">
+            <div class="caption">My brother and view by Bixby Bridge</div>
           </div>
         </div>
       </div>
@@ -363,6 +410,40 @@
       
         <div class="collage-col col-wide">
           <div class="photo landscape">
+            <img src="photos/Pennsylvania/DSC_0958.JPG" alt="eclipse">
+            <div class="caption">Watching the full eclipse</div>
+          </div>
+          <div class="photo landscape">
+            <img src="photos/Pennsylvania/DSC_0819.JPG" alt="dorm">
+            <div class="caption">Grin and Grind</div>
+          </div>
+          
+        </div>
+
+        <div class="collage-col col-narrow">
+          <div class="photo portrait">
+            <img src="photos/Pennsylvania/IMG_3272.JPG" alt="orchard">
+            <div class="caption">Apple picking at Sorgel's Orchards</div>
+          </div>
+          <div class="photo landscape">
+            <img src="photos/Pennsylvania/IMG_3284.JPG" alt="orchard">
+            <div class="caption">Apple picking</div>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Location: Spain ── -->
+    <section class="location-group" id="spain">
+      <div class="location-label">Spain</div>
+      <div class="collage">
+      
+        <div class="collage-col col-wide">
+          <div class="photo landscape">
             <div class="placeholder" style="aspect-ratio:3/2; background:#202828;"></div>
             <div class="caption">mountain road</div>
           </div>
@@ -376,10 +457,10 @@
         </div>
       </div>
     </section>
-
-    <!-- ── Location: Spain ── -->
-    <section class="location-group" id="spain">
-      <div class="location-label">Spain</div>
+    
+    <!-- ── Location: Germany ── -->
+    <section class="location-group" id="germany">
+      <div class="location-label">Germany</div>
       <div class="collage">
       
         <div class="collage-col col-wide">

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="head.js"></script>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,6 +11,49 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* ── Photos-page specific styles ── */
+    .project-row {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .project-media {
+      flex: 0 0 35%;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    .project-media img,
+    .project-media video {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      filter: brightness(0.92) saturate(0.9);
+    }
+
+    .project-info {
+      flex: 1;
+    }
+
+    .project-info h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .project-row { flex-direction: column !important; }
+      .project-media { flex: 0 0 100%; }
+    }
 
     .photos-header {
       text-align: center;
@@ -20,21 +64,6 @@
       color: var(--muted);
       font-size: 1.1rem;
       margin-bottom: 0;
-    }
-
-    /* Location group */
-    .location-group {
-      margin-bottom: 3.5rem;
-    }
-
-    .location-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
     }
 
     /* Masonry collage grid */
@@ -155,8 +184,25 @@
       <p>some things I've worked on!</p>
 
     <section class="location-group">
-      <div class="location-label">Operating System Design</div>
-      <p>Mini custom kernel.</p>
+      <div class="location-label">
+        Operating System Design
+        <span class="location-date">Spring 2026</span>
+      </div>
+      <div class="project-row">
+        <img src="projects/dog.png" alt="OS project" style="max-width: 15%; height: auto;" />
+        <div class="project-media">
+          <!-- use <video> or <img> -->
+
+          <!-- OR: -->
+          <!-- <video src="your-video.mp4" autoplay muted loop playsinline></video> -->
+        </div>
+        <div class="project-info">
+          <h3>Mini Custom Kernel</h3>
+          <p>
+            blah blah blah 
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="location-group">

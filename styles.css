@@ -46,6 +46,7 @@ h1 {
   letter-spacing: 0.5px;
 }
 
+
 /* ------------------------
    Paragraphs
 ------------------------ */
@@ -54,6 +55,26 @@ p {
   margin-bottom: 2rem;
 }
 
+/* ── Location group ── */
+.location-group {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 2rem;
+}
+
+.location-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Alternate: flip media to the right on even sections */
+.location-group:nth-child(even) .project-row {
+  flex-direction: row-reverse;
+}
 /* ------------------------
    Links / Portfolio navigation
 ------------------------ */
