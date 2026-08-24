@@ -141,6 +141,34 @@
       margin-bottom: 0.5rem;
     }
 
+    .external-link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+
+    .external-link::after {
+      content: ' ↗';
+      font-size: 0.8em;
+    }
+
+    .external-link:hover,
+    .external-link:focus-visible {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    .video-embed {
+      display: block;
+      width: min(100%, 560px);
+      aspect-ratio: 16 / 9;
+      height: auto;
+      margin: 0 auto 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
     @media (max-width: 500px) {
       .collage { columns: 2 120px; }
     }
@@ -157,6 +185,15 @@
     <section class="location-group">
       <div class="location-label">Sports</div>
       <p>CMU Track & Field: Triple Jump, Long Jump, 400m Hurdles</p>
+      <p><a class="external-link" href="https://www.tfrrs.org/athletes/8320648/Carnegie_Mellon/Alexa_Lowe.html" target="_blank" rel="noopener noreferrer">View my track &amp; field results</a></p>
+      <iframe
+        class="video-embed"
+        src="https://www.youtube.com/embed/DmslL08eB5c?rel=0"
+        title="Track & Field video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
       <p>Basketball for fun</p>
     </section>
 
@@ -168,6 +205,7 @@
     <section class="location-group">
       <div class="location-label">Videos</div>
       <p>made some vlogs</p>
+      <p><a class="external-link" href="https://www.youtube.com/@alexalexalowe" target="_blank" rel="noopener noreferrer">Visit my YouTube channel</a></p>
     </section>
 
   </main>

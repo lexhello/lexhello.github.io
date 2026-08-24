@@ -1,0 +1,67 @@
+:root {
+  --travel-ink: #32261f;
+  --travel-cream: #f8f2e8;
+  --travel-tan: #ddc4a1;
+  --travel-brown: #865f46;
+  --travel-blue: #4f8da5;
+  --travel-line: rgba(50, 38, 31, .16);
+}
+
+* { box-sizing: border-box; }
+body.travel-page {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--travel-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: linear-gradient(125deg, #1a1a1a 0%, #2c251f 50%, #1c2d33 130%);
+}
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+.travel-shell { min-height: 100vh; max-width: 1320px; margin: 0 auto; padding: 4.75rem 2.5rem 2.5rem; }
+.travel-card {
+  position: relative; min-height: calc(100vh - 7.25rem); padding: 1rem; overflow: hidden;
+  border: 1px solid #afa18b; border-radius: 0;
+  background-color: #eee5d4;
+  background-image: repeating-linear-gradient(0deg, rgba(92, 71, 52, .025) 0, rgba(92, 71, 52, .025) 1px, transparent 1px, transparent 5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+}
+.travel-topbar { position: absolute; z-index: 800; top: 1.45rem; right: 1.7rem; display: flex; justify-content: flex-end; align-items: center; pointer-events: none; }
+.travel-topbar > * { pointer-events: auto; }
+.top-actions { display: flex; gap: .55rem; }
+.top-action { padding: .25rem 0; color: var(--travel-ink); border: 0; border-bottom: 1px solid currentColor; border-radius: 0; background: transparent; font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; }
+.top-action:hover { color: var(--travel-blue); }
+#map { min-height: calc(100vh - 9.25rem); margin: 0; z-index: 1; border: 1px solid #c4b69e; background: radial-gradient(circle at 58% 46%, #d9e6df, #b8d5d8 58%, #a7c6ce); }
+.leaflet-container { font-family: 'Cormorant Garamond', Georgia, serif; }
+.leaflet-tile-pane { filter: sepia(.16) saturate(.78) brightness(1.04); }
+.leaflet-control-zoom a { color: var(--travel-ink) !important; }
+.place-pin { width: var(--pin-size); height: var(--pin-size); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--travel-brown); border: 2px solid var(--travel-cream); box-shadow: 0 2px 8px rgba(50,38,31,.35); transition: width 180ms ease, height 180ms ease; }
+.place-pin::after { content: ''; position: absolute; width: 28%; height: 28%; border-radius: 50%; background: var(--travel-cream); top: 25%; left: 25%; }
+.city-label { padding: 0 !important; color: #5d4434; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; font: 600 .88rem/1 'Cormorant Garamond', Georgia, serif; letter-spacing: .02em; text-shadow: 0 1px 7px rgba(248,242,232,.95), 0 1px 7px rgba(248,242,232,.95); }
+.city-label::before { display: none; }
+.banner { position: absolute; z-index: 700; top: 1rem; left: 1rem; width: calc(100% - 2rem); min-height: 200px; color: #fff; overflow: hidden; text-decoration: none; background-color: var(--travel-brown); background-image: var(--banner-image, none); background-size: cover; background-position: center; transition: background-image .5s ease; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%); }
+.banner, .banner * { text-decoration: none !important; }
+.banner-content { position: relative; z-index: 1; display: block; min-height: 200px; padding: 4.5rem clamp(1.5rem, 10vw, 9rem) 1.35rem; color: inherit; text-decoration: none; text-shadow: 0 2px 16px rgba(24, 17, 12, .75); }
+.banner-kicker, .detail-kicker { display: block; font-size: 0.9rem; text-transform: uppercase; letter-spacing: .16em; opacity: .85; }
+.banner h1 { max-width: 270px; margin: .35rem 0 0; font: 500 clamp(1.7rem, 4vw, 2.25rem)/.95 'Cormorant Garamond', Georgia, serif; }
+.banner p { margin: .5rem 0 0; font-size: .8rem; text-decoration: underline !important; text-underline-offset: .18em; }
+.panel { position: absolute; z-index: 850; top: 13.25rem; bottom: 2rem; left: 2rem; width: min(315px, calc(100% - 4rem)); padding: 1.25rem; background: #f4eddf; border: 1px solid #b9aa93; border-radius: 0; box-shadow: 5px 5px 0 rgba(95, 70, 49, .14); overflow: auto; transform: translateX(-115%); transition: transform .22s ease; }
+.panel.is-open { transform: translateX(0); }
+.panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.1rem; }
+.panel h2 { margin: 0; font: 600 1.7rem 'Cormorant Garamond', Georgia, serif; }
+.icon-button { border: 0; background: transparent; color: var(--travel-ink); font-size: 1.45rem; line-height: 1; }
+.country-group { padding: .8rem 0; border-top: 1px solid var(--travel-line); }
+.country-name { margin-bottom: .45rem; font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--travel-brown); }
+.place-row { display: block; width: 100%; padding: .37rem 0; border: 0; color: var(--travel-ink); text-align: left; background: transparent; }
+.place-row:hover { color: var(--travel-blue); }
+.place-row small { display: block; color: #826f61; margin-top: .1rem; }
+.detail { position: absolute; z-index: 900; inset: 0; display: none; place-items: center; padding: 1.25rem; background: rgba(43,32,25,.42); }
+.detail.is-open { display: grid; }
+.detail-card { width: min(760px, 100%); max-height: 90vh; overflow: auto; background: var(--travel-cream); border: 1px solid #b9aa93; border-radius: 0; box-shadow: 8px 8px 0 rgba(32,23,18,.28); }
+.detail-copy { position: relative; padding: 2.25rem 2rem 1.2rem; }
+.detail-copy h2 { margin: .35rem 0 .6rem; font: 600 clamp(2.3rem, 7vw, 3.6rem)/.9 'Cormorant Garamond', Georgia, serif; }
+.detail-copy p { max-width: 580px; margin: 0; line-height: 1.65; color: #5e4a3e; }
+.detail-close { position: absolute; top: 1rem; right: 1rem; }
+.photo-grid { display: grid; grid-template-columns: 1.45fr 1fr; gap: 5px; padding: 0 1rem 1rem; }
+.photo-grid img { width: 100%; height: 185px; object-fit: cover; border-radius: 0; }
+.photo-grid img:first-child { grid-row: span 2; height: 375px; }
+@media (max-width: 650px) { .travel-shell { padding: 4rem 0 0; } .travel-card { min-height: calc(100vh - 4rem); padding: .65rem; border-inline: 0; } #map { min-height: calc(100vh - 5.3rem); } .banner { top: .65rem; left: .65rem; width: calc(100% - 1.3rem); min-height: 190px; } .banner-content { min-height: 190px; padding: 5rem 1.25rem 1rem; } .panel { top: 12.25rem; left: .65rem; bottom: .65rem; width: calc(100% - 1.3rem); } .travel-topbar { top: 1.1rem; right: 1.2rem; padding: 0; } .top-action { font-size: .75rem; } .photo-grid { grid-template-columns: 1fr 1fr; } }

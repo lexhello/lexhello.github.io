@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexa — Travel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="travel.css">
+
+  <style>
+    /* Matches the fixed back-home link used on the other pages. */
+    .back-link {
+      position: fixed;
+      top: 1.5rem;
+      left: 1.5rem;
+      display: inline-block;
+      color: #cccccc;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 200ms ease;
+      z-index: 10;
+    }
+    .back-link:hover {
+      color: #d4b896;
+    }
+
+  </style>
+
+</head>
+
+<body class="travel-page">
+  <a class="back-link" href="index.html">← Back home</a>
+
+  <main class="travel-shell"><section class="travel-card">
+    <header class="travel-topbar">
+      <div class="top-actions"><button class="top-action" id="list-toggle">List View</button></div>
+    </header>
+    <a class="banner" id="banner-link" href="#"><span class="banner-content"><span class="banner-kicker"></span><h1></h1><p><span id="banner-meta"></span><span class="explore-story">Explore story →</span></p></span></a>
+    <div id="map" aria-label="Interactive map of places Alexa has been"></div>
+    <aside class="panel" id="places-panel"><div class="panel-head"><h2>Places I’ve been</h2><button class="icon-button" id="list-close" aria-label="Close places list">×</button></div><div id="places-list"></div></aside>
+    <section class="detail" id="detail" aria-modal="true" role="dialog"><article class="detail-card"><div class="detail-copy"><button class="icon-button detail-close" id="detail-close" aria-label="Close location details">×</button><span class="detail-kicker"></span><h2 id="detail-title"></h2><p id="detail-note"></p></div><div class="photo-grid" id="detail-photos"></div></article></section>
+  </section></main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="travel/data.js"></script>
+  <script src="travel.js"></script>
+</body>
+</html>
