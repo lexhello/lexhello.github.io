@@ -68,22 +68,24 @@ function renderBanner() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  map = L.map('map', { zoomControl: false, minZoom: 2, worldCopyJump: true }).setView([40, 8], 2);
+  map = L.map('map', {
+    zoomControl: false,
+    minZoom: 2,
+    maxZoom: 12,
+    worldCopyJump: true
+  }).setView([40, 8], 2);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   // A low-detail base keeps land, sea, lakes, and country boundaries visible.
   // Locking its native detail prevents street-level road clutter while zooming.
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
-    maxZoom: 18,
-    maxNativeZoom: 12,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
   // Carto's label-only tiles show city names but omit roads, terrain, borders,
   // and other geographic features. This sits above the quiet base layer.
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
-    maxZoom: 18,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
   markersLayer = L.layerGroup().addTo(map);
   renderMap(); renderList(); renderBanner();
