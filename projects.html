@@ -1,27 +1,102 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
   <script src="head.js"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Alexa — Projects</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="styles.css" />
+
   <style>
-    /* ── Photos-page specific styles ── */
+    /* ------------------------
+       Projects page
+    ------------------------ */
+
+    .projects-header {
+      text-align: center;
+      padding: 3rem 0 2.5rem;
+    }
+
+    .projects-header h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .projects-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    /* ------------------------
+       Project sections
+    ------------------------ */
+
+    .project-section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 2rem;
+    }
+
+    .project-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
     .project-row {
       display: flex;
       gap: 2rem;
       align-items: flex-start;
     }
 
+    .project-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .project-info h2 {
+      font-size: 1.45rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-info p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ------------------------
+       Project media
+    ------------------------ */
+
     .project-media {
-      flex: 0 0 35%;
-      border-radius: 4px;
+      flex: 0 0 42%;
       overflow: hidden;
+      border-radius: 4px;
       background: var(--border);
     }
 
@@ -30,123 +105,60 @@
       width: 100%;
       display: block;
       object-fit: cover;
-      filter: brightness(0.92) saturate(0.9);
     }
 
-    .project-info {
-      flex: 1;
-    }
-
-    .project-info h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-
-    .project-info p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.7;
-    }
-
-    @media (max-width: 600px) {
-      .project-row { flex-direction: column !important; }
-      .project-media { flex: 0 0 100%; }
-    }
-
-    .photos-header {
-      text-align: center;
-      padding: 3rem 0 2rem;
-    }
-
-    .photos-header p {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 0;
-    }
-
-    /* Masonry collage grid */
-    .collage {
-      columns: 3 180px;
-      column-gap: 8px;
-    }
-
-    .collage .photo {
-      break-inside: avoid;
-      margin-bottom: 8px;
-      overflow: hidden;
-      border-radius: 4px;
-      background: var(--border);
-      position: relative;
-      cursor: pointer;
-    }
-
-    /* Tall/portrait photos: let them be naturally taller */
-    .collage .photo img {
+    .project-video {
       width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
       display: block;
-      object-fit: cover;
-      transition: transform 400ms ease, filter 400ms ease;
-      filter: brightness(0.92) saturate(0.9);
     }
 
-    /* Placeholder when no real image is present */
-    .collage .photo .placeholder {
+    /* ------------------------
+       PDF viewer
+    ------------------------ */
+
+    .pdf-viewer {
       width: 100%;
-      background: var(--border);
-      display: flex;
-      align-items: flex-end;
-      padding: 0.6rem;
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
+      height: 420px;
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #222;
     }
 
-    /* Make some placeholders taller to simulate portrait orientation */
-    .collage .photo.portrait .placeholder {
-      aspect-ratio: 2 / 3;
-    }
-    .collage .photo.landscape .placeholder {
-      aspect-ratio: 4 / 3;
-    }
-    .collage .photo.square .placeholder {
-      aspect-ratio: 1 / 1;
-    }
-
-    /* Hover: brighten + slight zoom */
-    .collage .photo:hover img,
-    .collage .photo:hover .placeholder {
-      filter: brightness(1) saturate(1.05);
-    }
-    .collage .photo:hover img {
-      transform: scale(1.03);
+    .pdf-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px solid color-mix(
+        in srgb,
+        var(--accent) 55%,
+        transparent
+      );
+      transition: color 200ms ease, border-color 200ms ease;
     }
 
-    /* Caption overlay */
-    .collage .photo .caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 1.2rem 0.75rem 0.6rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      color: #e8e0d5;
-      opacity: 0;
-      transition: opacity 300ms ease;
+    .pdf-link::after {
+      content: ' ↗';
+      font-size: 0.8em;
     }
 
-    .collage .photo:hover .caption {
-      opacity: 1;
+    .pdf-link:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
     }
 
-    /* Back link */
+    /* ------------------------
+       Back link
+    ------------------------ */
+
     .back-link {
       position: fixed;
       top: 1.5rem;
       left: 1.5rem;
-      /* keep your existing styles below */
       display: inline-block;
       color: var(--muted);
       text-decoration: none;
@@ -156,85 +168,248 @@
       transition: color 200ms ease;
       z-index: 10;
     }
+
     .back-link:hover {
       color: var(--accent);
     }
 
-    /* Title styled like the location labels */
-    .photos-header h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
+    /* ------------------------
+       Mobile
+    ------------------------ */
 
-    @media (max-width: 500px) {
-      .collage { columns: 2 120px; }
+    @media (max-width: 600px) {
+      .project-row {
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .project-media {
+        flex: 0 0 100%;
+        width: 100%;
+      }
+
+      .pdf-viewer {
+        height: 350px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <main class="container" style="max-width: 1200px;">
+
+  <main class="container" style="max-width: 1000px;">
 
     <a class="back-link" href="index.html">← Back home</a>
 
+    <header class="projects-header">
       <h1>Projects</h1>
       <p>some things I've worked on!</p>
+    </header>
 
-    <section class="location-group">
-      <div class="location-label">
-        Operating System Design
-        <span class="location-date">Spring 2026</span>
-      </div>
-      <div class="project-row">
+
+    <!-- ========================
+         Operating Systems
+    ========================= -->
+
+    <section class="project-section"> 
+      <div class="project-label"> Operating System Design · Spring 2026 </div>
+       <div class="project-row"> 
+        <!-- <div class="project-media"> 
+          <img src="projects/dog.png" alt="OS project" />
+        </div>  -->
         <img src="projects/dog.png" alt="OS project" style="max-width: 15%; height: auto;" />
-        <div class="project-media">
-          <!-- use <video> or <img> -->
-
-          <!-- OR: -->
-          <!-- <video src="your-video.mp4" autoplay muted loop playsinline></video> -->
-        </div>
         <div class="project-info">
-          <h3>Mini Custom Kernel</h3>
-          <p>
-            In 15-410 Operating System Design and Implementation, we designed and coded a 
-            custom mini kernel by implementing simple virtual memory, processes, threads, thread scheduler, I/O,  
-            and exception handling. Shoutout to my project partner Victoria, we made Meat with the Sauce.
-          </p>
-        </div>
+           <h2>Mini Custom Kernel</h2> 
+           <p> For CMU's Operating System Design and Implementation (15-410) course, 
+            we built a bare-bones, Unix-like kernel in C! </p> 
+            <p> We implemented core kernel functionality including: <br> 
+              • Virtual memory (paging and page fault handling) <br> 
+              • Syscalls for process lifecycle management (fork, exec, wait) <br>
+               • Concurrent kernel processes and synchronization <br> 
+               • A preemptive thread scheduler <br> 
+               • I/O syscalls 
+            </p> 
+            <p> Aspects we designed and implemented from scratch include: 
+              paging-based virtual memory, context switching, synchronization 
+              primitives (mutexes, condition variables, semaphores), and exception handling.
+               We debugged our project using Simics and GDB. 
+            </p> 
+            <p> Shoutout to my project partner Victoria: through sickness, 
+              sweat, and tears we made Meat with the Sauce. While far from a <em>good</em> 
+              operating system, it is still <em>an</em> operating system 😛
+            </p> 
+          </div> 
+        </div> 
+      </section>
+
+
+    <!-- ========================
+         Build18
+    ========================= -->
+
+    <section class="project-section">
+
+      <div class="project-label">
+        Build18 Hackathon · January 2026
       </div>
-    </section>
 
-    <section class="location-group">
-      <div class="location-label">Build18 Hackathon</div>
-      <div class="project-info">
-          <h3>Klotski Solver</h3>
+      <div class="project-row">
+
+        <div class="project-media">
+          <iframe
+            class="project-video"
+            src="https://www.youtube.com/embed/DmslL08eB5c?rel=0"
+            title="Klotski Solver"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="project-info">
+          <h2>Klotski Solver</h2>
+
           <p>
-            For CMU's ECE hardware-software hackathon, we made a klotski tile-game
-            solver. 
+            For CMU's ECE hardware-software hackathon, we built a solver
+            for the Klotski sliding block puzzle.
           </p>
         </div>
+
+      </div>
+
     </section>
 
-    <section class="location-group">
-      <div class="location-label">Capstone</div>
-      <p>AIR: Augmented Instrumental Reality</p>
+
+    <!-- ========================
+         Capstone
+    ========================= -->
+
+    <section class="project-section">
+
+      <div class="project-label">
+        Capstone Project · Spring 2026
+      </div>
+
+      <div class="project-row">
+
+        <div class="project-media">
+          <iframe
+            class="project-video"
+            src="https://www.youtube.com/embed/RNBGunKeM-k"
+            title="AIR: Augmented Instrumental Reality"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="project-info">
+          <h2>AIR: Augmented Instrumental Reality</h2>
+
+          <p>
+            A hardware-software capstone project combining embedded
+            systems and augmented reality.
+          </p>
+        </div>
+
+      </div>
+
     </section>
 
-    <section class="location-group">
-      <div class="location-label">Semester Project at EPFL with SaCS Lab</div>
-      <p>ALoRA</p>
+
+    <!-- ========================
+         ALoRA
+    ========================= -->
+
+    <section class="project-section">
+
+      <div class="project-label">
+        Semester Project · EPFL SaCS Lab · Spring 2025
+      </div>
+
+      <div class="project-row">
+
+        <div class="project-media">
+
+          <iframe
+            class="pdf-viewer"
+            src="projects/alora.pdf"
+            title="ALoRA project report">
+          </iframe>
+
+          <a
+            class="pdf-link"
+            href="projects/alora.pdf"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open full report
+          </a>
+
+        </div>
+
+        <div class="project-info">
+          <h2>ALoRA</h2>
+
+          <p>
+            A system for efficiently serving multiple LoRA adapters
+            with the same language model.
+          </p>
+
+          <p>
+            Developed during my semester exchange at EPFL's Scalable
+            Computing Systems Lab with Prof. Anne-Marie Kermarrec.
+          </p>
+
+          <p>
+            The project explored mixed-batch training and inference,
+            adapter management, and efficient GPU utilization.
+          </p>
+        </div>
+
+      </div>
+
     </section>
 
-    <section class="location-group">
-      <div class="location-label">Carnegie Mellon Racing</div>
-      <p>Driver Controls </p>
+
+    <!-- ========================
+         Carnegie Mellon Racing
+    ========================= -->
+
+    <section class="project-section">
+
+      <div class="project-label">
+        Carnegie Mellon Racing · 2023–2024
+      </div>
+
+      <div class="project-row">
+
+        <div class="project-media">
+          <!-- <img
+            src="projects/racing.png"
+            alt="Carnegie Mellon Racing"
+          /> -->
+        </div>
+
+        <div class="project-info">
+          <h2>Driver Controls</h2>
+
+          <p>
+            Led the electronic vehicle controls team for Carnegie
+            Mellon's Formula SAE team.
+          </p>
+
+          <p>
+            Worked on custom vehicle control systems, embedded
+            software, and electronics for an electric race car.
+          </p>
+        </div>
+
+      </div>
+
     </section>
 
 
   </main>
+
 </body>
 </html>

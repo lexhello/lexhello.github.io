@@ -141,39 +141,12 @@
       margin-bottom: 0.5rem;
     }
 
-    .external-link {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
-      transition: color 200ms ease, border-color 200ms ease;
-    }
-
-    .external-link::after {
-      content: ' ↗';
-      font-size: 0.8em;
-    }
-
-    .external-link:hover,
-    .external-link:focus-visible {
-      color: var(--text);
-      border-bottom-color: var(--text);
-    }
-
-    .video-embed {
-      display: block;
-      width: min(100%, 560px);
-      aspect-ratio: 16 / 9;
-      height: auto;
-      margin: 0 auto 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-    }
-
     @media (max-width: 500px) {
       .collage { columns: 2 120px; }
     }
   </style>
 </head>
+
 <body>
   <main class="container" style="max-width: 1200px;">
 

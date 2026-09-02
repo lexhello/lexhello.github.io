@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <script src="head.js"></script>
 <html lang="en">
@@ -5,119 +6,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alexa — Resume</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="styles.css" />
+
   <style>
-    /* ── Photos-page specific styles ── */
+    /* ------------------------
+       Resume page
+    ------------------------ */
 
-    .photos-header {
-      text-align: center;
-      padding: 3rem 0 2rem;
-    }
-
-    .photos-header p {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 0;
+    .resume {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 4rem 2rem;
     }
 
-    /* Location group */
-    .location-group {
-      margin-bottom: 3.5rem;
-    }
-
-    .location-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* Masonry collage grid */
-    .collage {
-      columns: 3 180px;
-      column-gap: 8px;
-    }
-
-    .collage .photo {
-      break-inside: avoid;
-      margin-bottom: 8px;
-      overflow: hidden;
-      border-radius: 4px;
-      background: var(--border);
-      position: relative;
-      cursor: pointer;
-    }
-
-    /* Tall/portrait photos: let them be naturally taller */
-    .collage .photo img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform 400ms ease, filter 400ms ease;
-      filter: brightness(0.92) saturate(0.9);
-    }
-
-    /* Placeholder when no real image is present */
-    .collage .photo .placeholder {
-      width: 100%;
-      background: var(--border);
-      display: flex;
-      align-items: flex-end;
-      padding: 0.6rem;
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-
-    /* Make some placeholders taller to simulate portrait orientation */
-    .collage .photo.portrait .placeholder {
-      aspect-ratio: 2 / 3;
-    }
-    .collage .photo.landscape .placeholder {
-      aspect-ratio: 4 / 3;
-    }
-    .collage .photo.square .placeholder {
-      aspect-ratio: 1 / 1;
-    }
-
-    /* Hover: brighten + slight zoom */
-    .collage .photo:hover img,
-    .collage .photo:hover .placeholder {
-      filter: brightness(1) saturate(1.05);
-    }
-    .collage .photo:hover img {
-      transform: scale(1.03);
-    }
-
-    /* Caption overlay */
-    .collage .photo .caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 1.2rem 0.75rem 0.6rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      color: #e8e0d5;
-      opacity: 0;
-      transition: opacity 300ms ease;
-    }
-
-    .collage .photo:hover .caption {
-      opacity: 1;
-    }
-
-    /* Back link */
     .back-link {
       position: fixed;
       top: 1.5rem;
       left: 1.5rem;
-      /* keep your existing styles below */
       display: inline-block;
       color: var(--muted);
       text-decoration: none;
@@ -127,57 +41,326 @@
       transition: color 200ms ease;
       z-index: 10;
     }
+
     .back-link:hover {
       color: var(--accent);
     }
 
-    /* Title styled like the location labels */
-    .photos-header h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+    /* Header */
+
+    .resume-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .resume-header h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .contact {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .contact a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+
+    .contact a:hover {
+      color: var(--accent);
+    }
+
+    /* Sections */
+
+    .resume-section {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Resume entries */
+
+    .resume-entry {
+      margin-bottom: 1.25rem;
+    }
+
+    .resume-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+    }
+
+    .entry-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .entry-date {
+      color: var(--muted);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .entry-role {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 0.1rem;
+    }
+
+    /* Education */
+
+    .education-entry {
+      margin-bottom: 1rem;
+    }
+
+    .education-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .education-degree {
+      font-size: 1.1rem;
+    }
+
+    .education-school {
+      color: var(--muted);
+    }
+
+    .education-date {
+      color: var(--muted);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    /* Simple text rows */
+
+    .info-line {
+      color: var(--muted);
+      font-size: 1rem;
       margin-bottom: 0.5rem;
     }
 
-    @media (max-width: 500px) {
-      .collage { columns: 2 120px; }
+    .info-label {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 600px) {
+      .resume {
+        padding: 4rem 1.25rem 2rem;
+      }
+
+      .entry-top,
+      .education-line {
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+
+      .entry-date,
+      .education-date {
+        white-space: normal;
+      }
+
+      .resume-header h1 {
+        font-size: 2.1rem;
+      }
+
+      .contact {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <main class="container" style="max-width: 1200px;">
 
-    <a class="back-link" href="index.html">← Back home</a>
+  <a class="back-link" href="index.html">← Back home</a>
 
-      <h1>Resume</h1>
-      <p></p>
+  <main class="resume">
 
-    <section class="location-group">
-      <div class="location-label">Academics</div>
-      <p>CMU ECE Class of 2026</p>
-      <p>Harker Class of 2022</p>
+    <!-- Header -->
+    <header class="resume-header">
+      <h1>Alexa Lowe</h1>
+
+      <div class="contact">
+        <!-- 650 495 6279
+        &nbsp;|&nbsp;
+        <a href="mailto:arlowe@stanford.edu">arlowe@stanford.edu</a>
+        &nbsp;|&nbsp; -->
+        <a href="https://linkedin.com/in/alexalexalowe" target="_blank">
+          linkedin.com/in/alexalexalowe
+        </a>
+      
+      </div>
+    </header>
+
+
+    <!-- Education -->
+    <section class="resume-section">
+      <div class="section-title">Education</div>
+
+      <div class="education-entry">
+        <div class="education-line">
+          <div class="education-degree">
+            <strong>M.S.</strong> in Electrical Engineering
+            <span class="education-school">— Stanford University</span>
+          </div>
+          <div class="education-date">Expected Spring 2028</div>
+        </div>
+      </div>
+
+      <div class="education-entry">
+        <div class="education-line">
+          <div class="education-degree">
+            <strong>B.S.</strong> in Electrical and Computer Engineering
+            <span class="education-school">— Carnegie Mellon University</span>
+          </div>
+          <div class="education-date">2026</div>
+        </div>
+      </div>
+
+      <div class="info-line">
+        <span class="info-label">Interests:</span>
+        Computer Systems, Distributed Systems, Machine Learning,
+        Parallelism &amp; Concurrency in Software
+      </div>
     </section>
 
-    <section class="location-group">
-      <div class="location-label">Work Experience</div>
-      <p>Meta Internship</p>
-      <p>Teaching Assistant for Distributed Systems (15-440) and Introduction to Computer Systems (18-213) </p>
+
+    <!-- Languages & Skills -->
+    <section class="resume-section">
+      <div class="section-title">Languages &amp; Skills</div>
+
+      <div class="info-line">
+        <span class="info-label">Languages:</span>
+        C, C++, Python, Golang, SML, Assembly
+      </div>
+
+      <div class="info-line">
+        <span class="info-label">Skills:</span>
+        PyTorch, Hugging Face, UNIX, Linux, gdb, Docker
+      </div>
     </section>
 
-    <section class="location-group">
-      <div class="location-label">Research</div>
-      <p> WIP </p>
+
+    <!-- Experience -->
+    <section class="resume-section">
+      <div class="section-title">Experience</div>
+
+      <div class="resume-entry">
+        <div class="entry-top">
+          <div class="entry-title">
+            CyLab ML Research — Carnegie Mellon University
+          </div>
+          <div class="entry-date">Sept 2025 – July 2026</div>
+        </div>
+        <div class="entry-role">Research Assistant</div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-top">
+          <div class="entry-title">
+            Distributed Systems — Carnegie Mellon University
+          </div>
+          <div class="entry-date">Aug 2025 – Dec 2025</div>
+        </div>
+        <div class="entry-role">Teaching Assistant</div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-top">
+          <div class="entry-title">
+            Core Infra Resource Allocation System — Meta
+          </div>
+          <div class="entry-date">June 2025 – Aug 2025</div>
+        </div>
+        <div class="entry-role">Production Engineering Intern</div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-top">
+          <div class="entry-title">
+            Scalable Computing Systems Lab — EPFL
+          </div>
+          <div class="entry-date">Feb 2025 – June 2025</div>
+        </div>
+        <div class="entry-role">
+          Semester Exchange Project · Supervisor: Prof. Anne-Marie Kermarrec
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-top">
+          <div class="entry-title">
+            Scalable Computing Systems Lab — EPFL
+          </div>
+          <div class="entry-date">May 2024 – Aug 2024</div>
+        </div>
+        <div class="entry-role">
+          Excellence in Research Internship Program (ERIP) ·
+          Supervisor: Prof. Anne-Marie Kermarrec
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-top">
+          <div class="entry-title">
+            Carnegie Mellon Racing Formula Student
+          </div>
+          <div class="entry-date">June 2023 – June 2024</div>
+        </div>
+        <div class="entry-role">Captain of Electronic Vehicle Controls</div>
+      </div>
     </section>
 
-    <section class="location-group">
-      <div class="location-label"></div>
-      <p></p>
-    </section>
 
+    <!-- Extracurriculars -->
+    <section class="resume-section">
+      <div class="section-title">Extracurriculars</div>
+
+      <div class="info-line">
+        NCAA DIII Track and Field Athlete — 400m Hurdles &amp; Triple Jump
+      </div>
+
+      <div class="info-line">
+        Spring 2025 Exchange at EPFL in Switzerland
+      </div>
+
+      <div class="info-line">
+        ECE Department Ambassador and Guide — 2024
+      </div>
+
+      <div class="info-line">
+        Co-founder, CMU Global Buddies Club
+      </div>
+    </section>
 
   </main>
+
 </body>
 </html>
+
