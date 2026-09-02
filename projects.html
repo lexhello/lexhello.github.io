@@ -94,7 +94,7 @@
     ------------------------ */
 
     .project-media {
-      flex: 0 0 42%;
+      flex: 0 0 50%;
       overflow: hidden;
       border-radius: 4px;
       background: var(--border);
@@ -120,7 +120,7 @@
 
     .pdf-viewer {
       width: 100%;
-      height: 420px;
+      height: 250px;
       display: block;
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -203,7 +203,7 @@
 
     <header class="projects-header">
       <h1>Projects</h1>
-      <p>some things I've worked on!</p>
+      <p>some things I've worked on with amazing ppl</p>
     </header>
 
 
@@ -220,20 +220,20 @@
         <img src="projects/dog.png" alt="OS project" style="max-width: 15%; height: auto;" />
         <div class="project-info">
            <h2>Mini Custom Kernel</h2> 
-           <p> For CMU's Operating System Design and Implementation (15-410) course, 
-            we built a bare-bones, Unix-like kernel in C! </p> 
+           <p> Over the semester for CMU's Operating System Design and Implementation (15-410) course, 
+            we built a bare-bones, Unix-like kernel in C!</p> 
             <p> We implemented core kernel functionality including: <br> 
-              • Virtual memory (paging and page fault handling) <br> 
-              • Syscalls for process lifecycle management (fork, exec, wait) <br>
-               • Concurrent kernel processes and synchronization <br> 
-               • A preemptive thread scheduler <br> 
-               • I/O syscalls 
+              Virtual memory (paging and page fault handling), 
+              Syscalls for process lifecycle management (fork, exec, wait), 
+              Concurrent kernel processes and synchronization, 
+              A preemptive thread scheduler, 
+              I/O syscalls 
             </p> 
-            <p> Aspects we designed and implemented from scratch include: 
+            <!-- <p> Aspects we designed and implemented from scratch include: 
               paging-based virtual memory, context switching, synchronization 
               primitives (mutexes, condition variables, semaphores), and exception handling.
                We debugged our project using Simics and GDB. 
-            </p> 
+            </p>  -->
             <p> Shoutout to my project partner Victoria: through sickness, 
               sweat, and tears we made Meat with the Sauce. While far from a <em>good</em> 
               operating system, it is still <em>an</em> operating system 😛
@@ -272,6 +272,7 @@
           <p>
             For CMU's ECE hardware-software hackathon, we built a solver
             for the Klotski sliding block puzzle.
+            Had the best time with my teammates Garima, Victor, Emmard, and Manaen!
           </p>
         </div>
 
@@ -307,8 +308,8 @@
           <h2>AIR: Augmented Instrumental Reality</h2>
 
           <p>
-            A hardware-software capstone project combining embedded
-            systems and augmented reality.
+            A fun capstone project that lets you play chords easily like an instrument through motion!
+            Thanks to my partners Lucy and Taj throughout the semester!
           </p>
         </div>
 
@@ -316,6 +317,52 @@
 
     </section>
 
+    <!-- ========================
+         Cylab work
+    ========================= -->
+
+    <section class="project-section">
+
+      <div class="project-label">
+        Semester Research · CMU Cylab · Spring 2026
+      </div>
+
+      <div class="project-row">
+
+        <div class="project-media">
+
+          <iframe
+            class="pdf-viewer"
+            src="projects/paper.pdf"
+            title="Cylab research">
+          </iframe>
+
+          <a
+            class="pdf-link"
+            href="https://openreview.net/pdf?id=zKWdTO8ART"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open full workshop paper
+          </a>
+
+        </div>
+
+        <div class="project-info">
+          <h2>Times Series Foundation Models for Industrial Control Systems </h2>
+
+          <p>
+            We investigated the use of two foundation modesl for time series data 
+            on detecting long-context anomalies in industrial control systems.
+          </p>
+          <p>
+            Very lucky to be supervised by Clement and Prof. Lujo at Cylab, couldn't have asked 
+            for a more supportive group for my last year at CMU! Also got to attend ICML 2026 in Seoul!
+          </p>
+        </div>
+
+      </div>
+
+    </section>
 
     <!-- ========================
          ALoRA
@@ -339,7 +386,7 @@
 
           <a
             class="pdf-link"
-            href="projects/alora.pdf"
+            href="https://www.epfl.ch/labs/sacs/wp-content/uploads/2025/06/2025-spring-alexa.pdf"
             target="_blank"
             rel="noopener noreferrer">
             Open full report
@@ -356,13 +403,14 @@
           </p>
 
           <p>
-            Developed during my semester exchange at EPFL's Scalable
-            Computing Systems Lab with Prof. Anne-Marie Kermarrec.
-          </p>
-
-          <p>
             The project explored mixed-batch training and inference,
             adapter management, and efficient GPU utilization.
+          </p>
+          <p>
+            This was my semester project suring my exchange at EPFL. 
+            It's an understatement to say that I had an amazing time
+            with the people at Scalable Computing Systems (SaCS) Lab under Prof. Anne-Marie Kermarrec! 
+            Thanks to my supervisors Milos, Martijn, and Rafael! 
           </p>
         </div>
 
