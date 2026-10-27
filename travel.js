@@ -77,15 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   // A low-detail base keeps land, sea, lakes, and country boundaries visible.
   // Locking its native detail prevents street-level road clutter while zooming.
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  // CARTO tiles are used instead of tile.openstreetmap.org, whose usage policy
+  // blocks (403) embeds like this one, especially without a Referer header.
+  const cartoAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd',
     maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors'
+    attribution: cartoAttribution
   }).addTo(map);
   // Carto's label-only tiles show city names but omit roads, terrain, borders,
   // and other geographic features. This sits above the quiet base layer.
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd',
     maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors'
+    attribution: cartoAttribution
   }).addTo(map);
   markersLayer = L.layerGroup().addTo(map);
   renderMap(); renderList(); renderBanner();

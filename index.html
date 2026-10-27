@@ -23,23 +23,51 @@
     </p>
     
     <section class="links">
-      <a href="projects.html">Projects — Things I’ve built or am building.</a>
-      <a href="photos.html">Photos — Snapshots and memories.</a>
-      <a href="fun.html">Fun — Random stuff.</a>
-      <a href="travel.html">Travel — A map of places I’ve been.</a>
-      <a href="resume.html">Resume — My Resume.</a>
+      <a href="projects.html"><span><span class="link-title">Projects</span><span class="link-desc">Things I’ve built or am building.</span></span></a>
+      <a href="photos.html"><span><span class="link-title">Photos</span><span class="link-desc">Snapshots and memories.</span></span></a>
+      <a href="fun.html"><span><span class="link-title">Fun</span><span class="link-desc">Random stuff.</span></span></a>
+      <a href="travel.html"><span><span class="link-title">Travel</span><span class="link-desc">A map of places I’ve been.</span></span></a>
+      <a href="resume.html"><span><span class="link-title">Resume</span><span class="link-desc">My Resume.</span></span></a>
     </section>
 
-    <br>
-    <br>
-    <br>
+    <a class="scroll-hint" href="projects.html">Scroll to see projects ↓</a>
     <!-- <footer>
       <span id="year"></span> Alexa
     </footer> -->
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Scrolling down on the homepage (wheel, swipe up, or Down/PageDown/Space)
+    // takes you to the projects page.
+    (function () {
+      let leaving = false;
+      const goToProjects = () => {
+        if (leaving) return;
+        leaving = true;
+        window.location.href = "projects.html";
+      };
+      const atBottom = () =>
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+      window.addEventListener("wheel", (e) => {
+        if (e.deltaY > 20 && atBottom()) goToProjects();
+      }, { passive: true });
+
+      let touchStartY = null;
+      window.addEventListener("touchstart", (e) => {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      window.addEventListener("touchend", (e) => {
+        if (touchStartY === null) return;
+        const swipeUp = touchStartY - e.changedTouches[0].clientY;
+        if (swipeUp > 60 && atBottom()) goToProjects();
+        touchStartY = null;
+      }, { passive: true });
+
+      window.addEventListener("keydown", (e) => {
+        if (["ArrowDown", "PageDown", " "].includes(e.key) && atBottom()) goToProjects();
+      });
+    })();
   </script>
 </body>
 </html>

@@ -13,7 +13,7 @@ body.travel-page {
   min-height: 100vh;
   color: var(--travel-ink);
   font-family: 'Cormorant Garamond', Georgia, serif;
-  background: linear-gradient(125deg, #1a1a1a 0%, #2c251f 50%, #1c2d33 130%);
+  background: #ffffff;
 }
 button, input, textarea { font: inherit; }
 button { cursor: pointer; }
@@ -23,7 +23,7 @@ button { cursor: pointer; }
   border: 1px solid #afa18b; border-radius: 0;
   background-color: #eee5d4;
   background-image: repeating-linear-gradient(0deg, rgba(92, 71, 52, .025) 0, rgba(92, 71, 52, .025) 1px, transparent 1px, transparent 5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
 }
 .travel-topbar { position: absolute; z-index: 800; top: 1.45rem; right: 1.7rem; display: flex; justify-content: flex-end; align-items: center; pointer-events: none; }
 .travel-topbar > * { pointer-events: auto; }
