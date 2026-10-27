@@ -77,20 +77,17 @@ document.addEventListener('DOMContentLoaded', () => {
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   // A low-detail base keeps land, sea, lakes, and country boundaries visible.
   // Locking its native detail prevents street-level road clutter while zooming.
-  // CARTO tiles are used instead of tile.openstreetmap.org, whose usage policy
-  // blocks (403) embeds like this one, especially without a Referer header.
-  const cartoAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd',
-    maxZoom: 19,
-    attribution: cartoAttribution
+  // Esri's Light Gray Canvas needs no API key. (tile.openstreetmap.org blocks
+  // embeds like this with a 403, and CARTO basemaps now require an API key.)
+  const esriAttribution = 'Tiles &copy; <a href="https://www.esri.com">Esri</a> &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors';
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 16,
+    attribution: esriAttribution
   }).addTo(map);
-  // Carto's label-only tiles show city names but omit roads, terrain, borders,
+  // The label-only reference layer shows city names but omits roads, terrain,
   // and other geographic features. This sits above the quiet base layer.
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd',
-    maxZoom: 19,
-    attribution: cartoAttribution
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 16
   }).addTo(map);
   markersLayer = L.layerGroup().addTo(map);
   renderMap(); renderList(); renderBanner();
