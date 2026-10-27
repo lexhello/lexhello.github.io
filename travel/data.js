@@ -110,7 +110,7 @@ window.travelEntries = [
   },
   {
     id: 'pittsburgh-usa', place: 'Pittsburgh', country: 'United States', dates: '2022 - 2026', lat: 40.4406, lng: -79.9959,
-    note: 'My home base at Carnegie Mellon. Learned to love the place.',
+    note: 'My home base at Carnegie Mellon. It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us. . .',
     photos: ['photos/Pennsylvania/DSC_0819.JPG', 'photos/Pennsylvania/IMG_3272.JPG']
   },
   {
